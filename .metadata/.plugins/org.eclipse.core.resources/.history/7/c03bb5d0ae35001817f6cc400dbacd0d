@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.7" prefHeight="459.0" prefWidth="208.0" style="-fx-background-color: #3282bd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" layoutX="34.0" layoutY="14.0" prefHeight="34.0" prefWidth="140.0" text="INFORMAÇÕES" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="17.0" />
+         </font>
+      </Label>
+      <Separator layoutX="4.0" layoutY="47.0" opacity="0.8" prefWidth="200.0" />
+      <Label alignment="CENTER" layoutX="16.0" layoutY="72.0" prefHeight="34.0" prefWidth="176.0" text="Número de Hospedes:" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="16.0" layoutY="115.0" prefHeight="34.0" prefWidth="176.0" text="Máximo: 9" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="16.0" layoutY="149.0" prefHeight="34.0" prefWidth="176.0" text="Mínimo: 1" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="20.0" layoutY="105.0" prefHeight="3.0" prefWidth="164.0" />
+      <Separator layoutX="20.0" layoutY="238.0" prefHeight="3.0" prefWidth="164.0" />
+      <Label alignment="CENTER" layoutX="16.0" layoutY="282.0" prefHeight="34.0" prefWidth="176.0" text="Mínimo: 1" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="16.0" layoutY="248.0" prefHeight="34.0" prefWidth="176.0" text="Máximo: 6" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="16.0" layoutY="205.0" prefHeight="34.0" prefWidth="176.0" text="Número de Canais:" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="16.0" layoutY="336.0" prefHeight="34.0" prefWidth="176.0" text="Tamanho dos Intervalos:" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="16.0" layoutY="379.0" prefHeight="34.0" prefWidth="176.0" text="Máximo: 60" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="16.0" layoutY="413.0" prefHeight="34.0" prefWidth="176.0" text="Mínimo: 01" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="20.0" layoutY="369.0" prefHeight="3.0" prefWidth="164.0" />
+   </children>
+   <effect>
+      <DropShadow spread="0.07" />
+   </effect>
+</AnchorPane>

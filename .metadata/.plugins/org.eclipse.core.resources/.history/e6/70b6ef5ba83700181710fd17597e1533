@@ -1,0 +1,18 @@
+package application;
+
+public class record {
+	public int idHospede;
+	public int channel;
+	public String record;
+	
+	public record(){
+		idHospede = 0;
+		channel = 0;
+		record = "";
+	}
+	public record(){
+		idHospede = 0;
+		channel = 0;
+		record = "";
+	}
+}

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="208.0" style="-fx-background-color: #3282bd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" layoutX="50.0" layoutY="14.0" prefHeight="34.0" prefWidth="111.0" text="CANAIS" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="17.0" />
+         </font>
+      </Label>
+      <Separator layoutX="4.0" layoutY="50.0" opacity="0.8" prefWidth="200.0" />
+      <ImageView fitHeight="68.0" fitWidth="86.0" layoutX="10.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/channels/c1.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="86.0" layoutX="115.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/channels/c2.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="86.0" layoutX="10.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/channels/c3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="86.0" layoutX="10.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/channels/c5.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="86.0" layoutX="115.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/channels/c6.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="86.0" layoutX="115.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/channels/c4.jpg" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="100.0" layoutY="60.0" prefHeight="34.0" prefWidth="111.0" text="Canal 01" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="-3.0" layoutY="130.0" prefHeight="34.0" prefWidth="111.0" text="Canal 02" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="100.0" layoutY="200.0" prefHeight="34.0" prefWidth="111.0" text="Canal 03" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="-3.0" layoutY="270.0" prefHeight="34.0" prefWidth="111.0" text="Canal 04" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="100.0" layoutY="340.0" prefHeight="34.0" prefWidth="111.0" text="Canal 05" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="-3.0" layoutY="410.0" prefHeight="34.0" prefWidth="111.0" text="Canal 06" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="100.0" layoutY="77.0" prefHeight="34.0" prefWidth="111.0" text="Jogo do LEÃO" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="10.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="-3.0" layoutY="147.0" prefHeight="34.0" prefWidth="111.0" text="Piscina do gugu" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="10.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="-3.0" layoutY="287.0" prefHeight="34.0" prefWidth="111.0" text="Faustão" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="10.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="100.0" layoutY="217.0" prefHeight="34.0" prefWidth="111.0" text="Esquenta" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="10.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="100.0" layoutY="357.0" prefHeight="34.0" prefWidth="111.0" text="Silvio Santos" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="10.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="-3.0" layoutY="427.0" prefHeight="34.0" prefWidth="111.0" text="Ratinho" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="10.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="-3.0" layoutY="567.0" prefHeight="34.0" prefWidth="111.0" text="Raul Gil" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="10.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="100.0" layoutY="497.0" prefHeight="34.0" prefWidth="111.0" text="Barra Pesada" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="10.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="-3.0" layoutY="550.0" prefHeight="34.0" prefWidth="111.0" text="Canal 08" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="100.0" layoutY="480.0" prefHeight="34.0" prefWidth="111.0" text="Canal 07" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="68.0" fitWidth="86.0" layoutX="115.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/channels/c8.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="86.0" layoutX="10.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/channels/c7.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="86.0" layoutX="10.0" layoutY="620.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/channels/c9.jpg" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="100.0" layoutY="620.0" prefHeight="34.0" prefWidth="111.0" text="Canal 09" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="100.0" layoutY="637.0" prefHeight="34.0" prefWidth="111.0" text="Jornal Nacional" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="10.0" />
+         </font>
+      </Label>
+   </children>
+   <effect>
+      <DropShadow spread="0.07" />
+   </effect>
+</AnchorPane>

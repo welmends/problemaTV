@@ -1,0 +1,581 @@
+package application;
+
+import java.util.Random;
+import java.util.concurrent.Semaphore;
+
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.SequentialTransition;
+import javafx.animation.Timeline;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Label;
+import javafx.scene.image.*;
+import javafx.scene.media.AudioClip;
+import javafx.scene.paint.Color;
+import javafx.util.Duration;
+
+public class Hospede extends Thread {
+	public static Log log = new Log();
+	public static Image C1 = new Image("file:resources/channels/ch1.png");
+	public static Image C2 = new Image("file:resources/channels/ch2.png");
+	public static Image C3 = new Image("file:resources/channels/ch3.png");
+	public static Image C4 = new Image("file:resources/channels/ch4.png");
+	public static Image C5 = new Image("file:resources/channels/ch5.png");
+	public static Image C6 = new Image("file:resources/channels/ch6.png");
+	public static Image C7 = new Image("file:resources/channels/ch7.png");
+	public static Image C8 = new Image("file:resources/channels/ch8.png");
+	public static Image C9 = new Image("file:resources/channels/ch9.png");
+	public static AudioClip turnOnOff = new AudioClip("file:resources/songs/turnonoff.mp3");
+	public static AudioClip clip2;
+	public static Semaphore PPC = new Semaphore(1);//Permissao para pegar o controle
+	public static Semaphore PPA = new Semaphore(0);//Permissao para assistir
+	public static Semaphore mutex = new Semaphore(1);//Mutex
+	public static int canal = 0;//Canal atual
+	public static int PA = 0;//Pessoas assistindo
+	public static int PF = 0;//Pessoas dormindo
+	public static int flag = 1;//flag
+	public static int [] elevator = new int[9];
+	public static int [] roomX = new int[9];
+	public static int [] roomY = new int[9];
+	public static int [] cineX = new int[9];
+	public static int [] cineY = new int[9];
+	
+    public Semaphore anima = new Semaphore(0);
+    public double transitionTime;
+    public int ite;
+    public int id;
+    public ImageView IC;
+    public ImageView TelaC;
+    public Label TimeLabel;
+    public Image IAtual;
+	public Image I0;//Assistindo
+	public Image I1;//Descansando
+	public Image I2;//Bloqueado
+	public Image I3;//=>
+	public Image I4;//<=
+	public Image I5;//Elevator
+    public int status;//status Atual
+    public int canalIndv;//Canal da instancia do hospede
+    public int tempo_a;//Tempo assistindo
+    public int tempo_d;//Tempo descansando
+    public String TLText;
+	
+	public double abs(double value) {
+		if(value<0) {
+			return value*(-1);
+		}
+		return value;
+	}
+	
+	public void setLocalInfo() {
+		roomX[0]=264; roomY[0]=244;
+		roomX[1]=276; roomY[1]=330;
+		roomX[2]=467; roomY[2]=329;
+		roomX[3]=528; roomY[3]=430;
+		roomX[4]=719; roomY[4]=246;
+		roomX[5]=749; roomY[5]=335;
+		roomX[6]=894; roomY[6]=332;
+		roomX[7]=921; roomY[7]=427;
+		roomX[8]=736; roomY[8]=517;
+
+		cineX[0]=1071; cineY[0]=635;
+		cineX[1]=1036; cineY[1]=609;
+		cineX[2]=1005; cineY[2]=635;
+		cineX[3]=971;  cineY[3]=608;
+		cineX[4]=940;  cineY[4]=635;
+		cineX[5]=906;  cineY[5]=608;
+		cineX[6]=873;  cineY[6]=635;
+		cineX[7]=840;  cineY[7]=607;
+		cineX[8]=806;  cineY[8]=635;
+		
+		for(ite=0;ite<9;ite++) {
+			if(ite<4) {
+				elevator[ite] = 594;
+			}else {
+				elevator[ite] = 647;
+			}
+		}
+	}
+	
+	public Hospede(String nome, int id_hospede, ImageView I, ImageView Tela, Label TL, AudioClip clip2, int canalPreferido, int tempo_assistindo, int tempo_descansando) {
+		super(nome);
+		
+		log.writeInLog(String.valueOf(id_hospede+1), "Entrada no Hotel");
+		setLocalInfo();
+		
+		transitionTime = 4000;
+		id = id_hospede;
+		IC = I;
+		TelaC = Tela;
+		IC.setLayoutX(roomX[id]);
+		IC.setLayoutY(roomY[id]);
+		TimeLabel = TL;
+		I0 = new Image("file:resources/avatares/A_"+String.valueOf(canalPreferido-1)+".png");//Assistindo
+		I1 = new Image("file:resources/avatares/D_"+String.valueOf(canalPreferido-1)+".png");//Descansando
+		I2 = new Image("file:resources/avatares/B_"+String.valueOf(canalPreferido-1)+".png");//Bloqueado
+		I3 = new Image("file:resources/avatares/W2_"+String.valueOf(canalPreferido-1)+".png");//=>
+		I4 = new Image("file:resources/avatares/W1_"+String.valueOf(canalPreferido-1)+".png");//<=
+		I5 = new Image("file:resources/avatares/E_"+String.valueOf(canalPreferido-1)+".png");//Elevator
+		canalIndv = canalPreferido;
+		tempo_a = tempo_assistindo;
+		tempo_d = tempo_descansando;
+	}
+	
+	public void updateChannelImg(Boolean openning) {
+		if(openning) {
+		    Platform.runLater(new Runnable() {
+		        @Override
+		        public void run() {
+		        		if(canal==1) {
+		        			TelaC.setImage(C1);
+		        		}
+		        		else if(canal==2) {
+		        			TelaC.setImage(C2);
+		        		}
+		        		else if(canal==3) {
+		        			TelaC.setImage(C3);
+		        		}
+		        		else if(canal==4) {
+		        			TelaC.setImage(C4);
+		        		}
+		        		else if(canal==5) {
+		        			TelaC.setImage(C5);
+		        		}
+		        		else if(canal==6) {
+		        			TelaC.setImage(C6);
+		        		}
+		        		else if(canal==7) {
+		        			TelaC.setImage(C7);
+		        		}
+		        		else if(canal==8) {
+		        			TelaC.setImage(C8);
+		        		}
+		        		else if(canal==9) {
+		        			TelaC.setImage(C9);
+		        		}
+		        }
+		    });
+		}else {
+		    Platform.runLater(new Runnable() {
+		        @Override
+		        public void run() {
+		        		TelaC.setImage(null);
+		        }
+		    });
+		}
+	}
+	
+	public void changeChannel() {
+		canal = canalIndv;
+	}
+	
+	public void changeStatus(int state) {
+		//0 - Assistindo (A)
+		//1 - Descansando (D)
+		//2 - Bloqueado (B)
+		status = state;
+		if(state==0) {
+			IAtual = I0;
+		}
+		else if(state==1){
+			IAtual = I1;
+		}
+		else if(state==2){
+			IAtual = I2;
+		}
+	    Platform.runLater(new Runnable() {
+	        @Override
+	        public void run() {
+	        		IC.setImage(IAtual);
+	        }
+	    });
+	}
+	
+	public void Assiste() {
+        //Update TimeLabel Position
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                TimeLabel.setLayoutX(cineX[id]+15);
+                TimeLabel.setLayoutY(cineY[id]-30);
+                TimeLabel.toFront();
+            }
+        });
+
+        changeStatus(0);
+        
+        //CPU_BOUND
+        int calc;
+        long initialTime = System.currentTimeMillis();
+        long currentTime = initialTime;
+        long finalTime = currentTime + tempo_a*1000;
+        int lastCounterTime = 0;
+        
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+            		TLText = String.valueOf(tempo_a);
+            		TimeLabel.setText(TLText);
+            		TimeLabel.setTextFill(Color.web("#74a9cf"));
+            }
+        });
+        
+        while(currentTime < finalTime) {
+            currentTime = System.currentTimeMillis();
+            calc = Math.round((currentTime - initialTime) / 1000);
+            
+            if(lastCounterTime != calc) {
+                TLText = String.valueOf(tempo_a-calc);
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        TimeLabel.setText(TLText);
+                        TimeLabel.setTextFill(Color.web("#74a9cf"));
+                    }
+                });
+                lastCounterTime = calc;
+            }
+        }
+        
+        //area diferente.
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                TimeLabel.setText("");
+                TimeLabel.setTextFill(Color.web("#fef0d9"));
+            }
+        });
+	}
+	
+	public void Descansa() {
+        //Update TimeLabel Position
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                TimeLabel.setLayoutX(roomX[id]+15);
+                TimeLabel.setLayoutY(roomY[id]-30);
+                TimeLabel.toFront();
+            }
+        });
+        
+        changeStatus(1);
+        
+        //CPU_BOUND
+        int calc;
+        long initialTime = System.currentTimeMillis();
+        long currentTime = initialTime;
+        long finalTime = currentTime + tempo_d*1000;
+        int lastCounterTime = 0;
+        
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+            		TLText = String.valueOf(tempo_d);
+            		TimeLabel.setText(TLText);
+            		TimeLabel.setTextFill(Color.web("#f03b20"));
+            }
+        });
+        
+        while(currentTime < finalTime) {
+            currentTime = System.currentTimeMillis();
+            calc = Math.round((currentTime - initialTime) / 1000);
+            
+            if(lastCounterTime != calc) {
+                TLText = String.valueOf(tempo_d-calc);
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        TimeLabel.setText(TLText);
+                        TimeLabel.setTextFill(Color.web("#f03b20"));
+                    }
+                });
+                lastCounterTime = calc;
+            }
+        }
+        
+        //areadiferente.
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                TimeLabel.setText("");
+                TimeLabel.setTextFill(Color.web("#fcae91"));
+            }
+        });
+	}
+	
+	public void run() {
+		//release = down
+		//acquire = up
+		
+//		Random rd = new Random();
+//		try {
+//			sleep(rd.nextInt(30)*1000);
+//		} catch (InterruptedException e1) {
+//			e1.printStackTrace();
+//		}
+		
+		changeStatus(1);
+		
+		while(true) {
+			//========== 1st ==========
+			changeStatus(2);
+			try {
+				mutex.acquire();
+			} catch (InterruptedException e1) {
+				e1.printStackTrace();
+			}
+			if(PA == 0) {
+				try {
+					PPC.acquire();
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
+				PA++;
+				changeChannel();
+				mutex.release();
+			}
+			else if(canal == canalIndv) {
+				PA++;
+				mutex.release();
+			}
+			else {
+				while(flag==1) {
+					PF++;
+					mutex.release();
+					try {
+						PPA.acquire();
+						mutex.acquire();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					if (PA==0) {
+						try {
+							PPC.acquire();
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						PA++;
+						changeChannel();
+						flag=0;
+					}
+					else if (canal==canalIndv) {
+						PA++;
+						flag=0;
+					}
+					else {
+						PF--;
+						PPA.release(1);
+					}
+				}
+				flag = 1;
+				mutex.release();
+			}
+			
+			//========== MIDDLE ==========
+			//=== Animation GoingIn ===
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                		log.writeInLog(String.valueOf(id+1), "Hóspede está indo para sala da TV");
+                		transitionGoingIn();
+                }
+            });
+            try {
+                anima.acquire();
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+			//=========================
+			
+			//=== Show Tela ===
+		    Platform.runLater(new Runnable() {
+		        @Override
+		        public void run() {
+		        		turnOnOff.setVolume(1000000.0);
+		        		turnOnOff.setCycleCount(100);
+		        		turnOnOff.play();
+		        }
+		    });
+			updateChannelImg(true);
+			//=================
+			
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                		log.writeInLog(String.valueOf(id+1), "Hóspede está assistindo");
+                }
+            });
+			
+			Assiste();// HOSPEDE ASSISTINDO...
+			
+            //=== 2nd and Hide Tela ===
+			//=========================
+            try {
+                mutex.acquire();
+            } catch (InterruptedException e1) {
+                e1.printStackTrace();
+            }
+            PA--;
+            if(PA==0) {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                    		turnOnOff.setVolume(1000000.0);
+                    		turnOnOff.play();
+                    }
+                });
+                updateChannelImg(false);
+                PPC.release();
+                PPA.release(PF);
+                PF=0;
+            }
+            mutex.release();
+            //=========================
+		    
+		    //=== Animation GoingBack ===
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                		log.writeInLog(String.valueOf(id+1), "Hóspede está indo para o seu quarto");
+                		transitionGoingBack();
+                }
+            });
+            try {
+                this.anima.acquire();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+			//===========================
+			//============================
+            
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                		log.writeInLog(String.valueOf(id+1), "Hóspede está descansando");
+                }
+            });
+			Descansa();// HOSPEDE DESCANSANDO...
+		}
+	}
+	
+	public void transitionGoingIn() {
+		
+		double perc1 =  abs((double)roomX[id]-(double)elevator[id]);
+		double perc2 =  abs((double)roomY[id]-(double)cineY[id]);
+		double perc3 =  abs((double)elevator[id]-(double)cineX[id]);
+		double totalPerc = perc1 + perc2 + perc3;
+		
+		if(id<4) {
+			IC.setImage(I3);
+		}else {
+			IC.setImage(I4);
+		}
+		SequentialTransition st = new SequentialTransition();
+		Timeline timeline1 = new Timeline();
+		Timeline timeline2 = new Timeline();
+		Timeline timeline3 = new Timeline();
+		
+		final KeyValue kv1 = new KeyValue(IC.layoutXProperty(), elevator[id]);
+		final KeyValue kv2 = new KeyValue(IC.layoutYProperty(), cineY[id]);
+		final KeyValue kv3 = new KeyValue(IC.layoutXProperty(), cineX[id]);
+		
+		//System.out.println((double)(perc1/totalPerc)*transitionTime);
+		final KeyFrame kf1 = new KeyFrame(Duration.millis((perc1/totalPerc)*transitionTime), kv1);
+		final KeyFrame kf2 = new KeyFrame(Duration.millis((perc2/totalPerc)*transitionTime), kv2);
+		final KeyFrame kf3 = new KeyFrame(Duration.millis((perc3/totalPerc)*transitionTime), kv3);
+		
+		timeline1.getKeyFrames().addAll(kf1);
+		timeline2.getKeyFrames().addAll(kf2);
+		timeline3.getKeyFrames().addAll(kf3);
+		timeline1.setOnFinished(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				IC.setImage(I5);
+			}
+		});
+		timeline2.setOnFinished(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				IC.setImage(I3);
+			}
+		});
+		timeline3.setOnFinished(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				IC.setImage(I0);
+			}
+		});
+		
+		st.getChildren().addAll(timeline1, timeline2, timeline3);
+		st.play();
+		st.setOnFinished(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				anima.release();
+			}
+		});
+	}
+	
+	public void transitionGoingBack() {
+		
+		double perc1 = abs((double)cineX[id]-(double)elevator[id]);
+		double perc2 = abs((double)cineY[id]-(double)roomY[id]);
+		double perc3 = abs((double)elevator[id]-(double)roomX[id]);
+		double totalPerc = perc1 + perc2 + perc3;
+		
+		IC.setImage(I4);
+		
+		SequentialTransition st = new SequentialTransition();
+		Timeline timeline1 = new Timeline();
+		Timeline timeline2 = new Timeline();
+		Timeline timeline3 = new Timeline();
+		
+		final KeyValue kv1 = new KeyValue(IC.layoutXProperty(), elevator[id]);
+		final KeyValue kv2 = new KeyValue(IC.layoutYProperty(), roomY[id]);
+		final KeyValue kv3 = new KeyValue(IC.layoutXProperty(), roomX[id]);
+		
+		final KeyFrame kf1 = new KeyFrame(Duration.millis((perc1/totalPerc)*transitionTime), kv1);
+		final KeyFrame kf2 = new KeyFrame(Duration.millis((perc2/totalPerc)*transitionTime), kv2);
+		final KeyFrame kf3 = new KeyFrame(Duration.millis((perc3/totalPerc)*transitionTime), kv3);
+		
+		timeline1.getKeyFrames().addAll(kf1);
+		timeline2.getKeyFrames().addAll(kf2);
+		timeline3.getKeyFrames().addAll(kf3);
+		timeline1.setOnFinished(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				IC.setImage(I5);
+			}
+		});
+		timeline2.setOnFinished(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				if(id<4) {
+					IC.setImage(I4);
+				}else {
+					IC.setImage(I3);
+				}
+			}
+		});
+		timeline3.setOnFinished(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				IC.setImage(I1);
+			}
+		});
+		
+		st.getChildren().addAll(timeline1, timeline2, timeline3);
+		st.play();
+		st.setOnFinished(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				anima.release();
+			}
+		});
+
+	}
+	
+}

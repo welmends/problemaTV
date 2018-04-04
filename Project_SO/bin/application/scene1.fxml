@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="208.0" style="-fx-background-color: #3282bd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="91.0" fitWidth="106.0" layoutX="21.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/avatares/A_0.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="91.0" fitWidth="106.0" layoutX="136.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/avatares/D_0.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="91.0" fitWidth="106.0" layoutX="21.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/avatares/B_0.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="91.0" fitWidth="106.0" layoutX="130.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/avatares/W1_0.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="9.0" layoutY="188.0" text="Descansando" textFill="WHITE">
+         <font>
+            <Font name="Papyrus" size="17.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label layoutX="108.0" layoutY="98.0" text="Assistindo" textFill="WHITE">
+         <font>
+            <Font name="Papyrus" size="17.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label layoutX="105.0" layoutY="291.0" text="Bloqueado" textFill="WHITE">
+         <font>
+            <Font name="Papyrus" size="17.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label layoutX="25.0" layoutY="380.0" text="Andando" textFill="WHITE">
+         <font>
+            <Font name="Papyrus" size="17.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" layoutX="50.0" layoutY="14.0" prefHeight="34.0" prefWidth="111.0" text="AVATARES" textFill="WHITE">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Papyrus" size="17.0" />
+         </font>
+      </Label>
+      <Separator layoutX="4.0" layoutY="47.0" opacity="0.8" prefWidth="200.0" />
+   </children>
+   <effect>
+      <DropShadow spread="0.07" />
+   </effect>
+</AnchorPane>

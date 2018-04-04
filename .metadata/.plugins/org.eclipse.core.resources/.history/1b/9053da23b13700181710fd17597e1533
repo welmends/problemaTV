@@ -1,0 +1,77 @@
+package application;
+	
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
+import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+
+public class Main extends Application {
+	
+	public TableView<Record> tab1;
+	public TableColumn<Record, String> col1;
+	public TableColumn<Record, String> col2;
+	public TableColumn<Record, String> col3;
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+	 
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+//		Parent root = FXMLLoader.load(getClass().getResource("mainScene.fxml"));
+//		Image icone = new Image("file:/resources/icone.ico");
+//		primaryStage.getIcons().add(icone);
+//		primaryStage.setScene(new Scene(root, 1321.5, 746.5));
+//		primaryStage.setResizable(false);
+//		primaryStage.setTitle("Application");
+//		primaryStage.initStyle(StageStyle.UNDECORATED);
+//		primaryStage.show();
+//		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+//		    @Override public void handle(WindowEvent t) {
+//		        Platform.exit();
+//		        System.exit(0);
+//		    }
+//		});
+		Parent root = FXMLLoader.load(getClass().getResource("logScene.fxml"));
+		primaryStage.setScene(new Scene(root, 1321.5, 746.5));
+		primaryStage.setResizable(false);
+		primaryStage.setTitle("Application");
+		primaryStage.initStyle(StageStyle.UNDECORATED);
+		primaryStage.show();
+		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+		    @Override public void handle(WindowEvent t) {
+		        Platform.exit();
+		        System.exit(0);
+		    }
+		});
+		getRecords();
+	}
+	
+	public void  getRecords(){ 
+		//set up the columns in the table
+		col1.setCellValueFactory(new PropertyValueFactory<Record,String>("idHospede"));
+		col2.setCellValueFactory(new PropertyValueFactory<Record,String>("channel"));
+		col3.setCellValueFactory(new PropertyValueFactory<Record,String>("record"));
+		
+
+		ObservableList<Record> records = FXCollections.observableArrayList();
+		records.add(new Record("1", "5", "Indo assistir"));
+		records.add(new Record("5", "3", "Indo Dormir"));
+		
+		//load dummy data
+		tab1 = new TableView<>();
+		tab1.setItems(records);
+	}
+	
+}

@@ -1,0 +1,69 @@
+package application;
+
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+
+public class Log{
+	
+	public TableView<Record> tab1;
+	public Stage s;
+	
+	public Log(){
+		s = new Stage();
+		s.setTitle("System Log");
+		
+		TableColumn<Record, String> col1 = new TableColumn<>("Hóspede");
+		TableColumn<Record, String> col2 = new TableColumn<>("Canal");
+		TableColumn<Record, String> col3 = new TableColumn<>("Descrição");
+		col1.setMinWidth(150);
+		col2.setMinWidth(150);
+		col3.setMinWidth(500);
+		col1.setStyle("-fx-alignment: CENTER;");
+		col1.setStyle("-fx-alignment: CENTER;");
+		col1.setStyle("-fx-alignment: CENTER;");
+		col1.setCellValueFactory(new PropertyValueFactory<Record,String>("idHospede"));
+		col2.setCellValueFactory(new PropertyValueFactory<Record,String>("channel"));
+		col3.setCellValueFactory(new PropertyValueFactory<Record,String>("record"));
+		
+		tab1 = new TableView<>();
+		tab1.getColumns().addAll(col1, col2, col3);
+		
+		VBox vb = new VBox();
+		vb.getChildren().addAll(tab1);
+		
+		s.setResizable(false);
+		s.setScene(new Scene(vb));
+		s.setOnCloseRequest(new EventHandler<WindowEvent>() {
+		    @Override public void handle(WindowEvent t) {
+		        Platform.exit();
+		        System.exit(0);
+		    }
+		});
+		s.show();
+		s.toBack();
+	}
+	
+	public ObservableList<Record> getRecords(){ 
+		//set up the columns in the table
+		ObservableList<Record> records = FXCollections.observableArrayList();
+		records.add(new Record("1", "5", "Indo assistir"));
+		records.add(new Record("5", "3", "Indo Dormir"));
+		
+		return records;
+	}
+	
+	public void writeInLog(String idHospede, String channel, String record) {
+		Record rec = new Record(idHospede, channel, record);
+		tab1.getItems().add(rec);
+	}
+
+}

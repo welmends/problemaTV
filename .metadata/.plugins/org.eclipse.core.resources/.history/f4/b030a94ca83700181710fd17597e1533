@@ -1,0 +1,7 @@
+package application;
+
+public class record {
+	public int idHospede;
+	public int channel;
+	public String Descricao;
+}

@@ -1,0 +1,19 @@
+package application;
+
+public class record {
+	public int idHospede;
+	public int channel;
+	public String record;
+	
+	public record(){
+		this.idHospede = 0;
+		this.channel = 0;
+		this.record = "";
+	}
+	
+	public record(int idHospede, int channel, String record){
+		this.idHospede = idHospede;
+		this.channel = channel;
+		this.record = record;
+	}
+}

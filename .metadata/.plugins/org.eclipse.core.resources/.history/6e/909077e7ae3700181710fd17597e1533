@@ -1,0 +1,43 @@
+package application;
+
+public class Record {
+	private Integer idHospede;
+	private Integer channel;
+	private String record;
+	
+	public Record(){
+		this.idHospede = 0;
+		this.channel = 0;
+		this.record = "";
+	}
+	
+	public Record(int idHospede, int channel, String record){
+		this.idHospede = idHospede;
+		this.channel = channel;
+		this.record = record;
+	}
+	
+	void setIdHospede(int idHospede) {
+		this.idHospede = idHospede;
+	}
+	
+	void setChannel(int channel) {
+		this.channel = channel;
+	}
+	
+	void setRecord(String record) {
+		this.record = record;
+	}
+	
+	int getIdHospede() {
+		return this.idHospede;
+	}
+	
+	int getChannel() {
+		return this.channel;
+	}
+	
+	String getRecord() {
+		return this.record;
+	}
+}
