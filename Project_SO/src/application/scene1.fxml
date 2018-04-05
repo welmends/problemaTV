@@ -14,22 +14,22 @@
    <children>
       <ImageView fitHeight="91.0" fitWidth="106.0" layoutX="21.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/avatares/A_0.png" />
+            <Image url="file:resources/avatares/A_0.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="91.0" fitWidth="106.0" layoutX="136.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/avatares/D_0.png" />
+            <Image url="file:resources/avatares/D_0.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="91.0" fitWidth="106.0" layoutX="21.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/avatares/B_0.png" />
+            <Image url="file:resources/avatares/B_0.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="91.0" fitWidth="106.0" layoutX="130.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/avatares/W1_0.png" />
+            <Image url="file:resources/avatares/W1_0.png" />
          </image>
       </ImageView>
       <Label layoutX="9.0" layoutY="188.0" text="Descansando" textFill="WHITE">

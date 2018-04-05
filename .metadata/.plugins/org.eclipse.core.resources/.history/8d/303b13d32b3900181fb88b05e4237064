@@ -23,32 +23,32 @@
       <Separator layoutX="4.0" layoutY="50.0" opacity="0.8" prefWidth="200.0" />
       <ImageView fitHeight="68.0" fitWidth="86.0" layoutX="10.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:resources/channels/c1.jpeg" />
+            <Image url="@../../resources/channels/c1.jpeg" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="86.0" layoutX="115.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:resources/channels/c2.jpg" />
+            <Image url="@../../resources/channels/c2.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="86.0" layoutX="10.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:resources/channels/c3.png" />
+            <Image url="@../../resources/channels/c3.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="86.0" layoutX="10.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:resources/channels/c5.jpg" />
+            <Image url="@../../resources/channels/c5.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="86.0" layoutX="115.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:resources/channels/c6.jpg" />
+            <Image url="@../../resources/channels/c6.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="86.0" layoutX="115.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:resources/channels/c4.jpg" />
+            <Image url="@../../resources/channels/c4.jpg" />
          </image>
       </ImageView>
       <Label alignment="CENTER" layoutX="100.0" layoutY="60.0" prefHeight="34.0" prefWidth="111.0" text="Canal 01" textFill="WHITE">
@@ -181,17 +181,17 @@
       </Label>
       <ImageView fitHeight="68.0" fitWidth="86.0" layoutX="115.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:resources/channels/c8.jpg" />
+            <Image url="@../../resources/channels/c8.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="86.0" layoutX="10.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:resources/channels/c7.jpg" />
+            <Image url="@../../resources/channels/c7.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="68.0" fitWidth="86.0" layoutX="10.0" layoutY="620.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:resources/channels/c9.jpg" />
+            <Image url="@../../resources/channels/c9.jpg" />
          </image>
       </ImageView>
       <Label alignment="CENTER" layoutX="100.0" layoutY="620.0" prefHeight="34.0" prefWidth="111.0" text="Canal 09" textFill="WHITE">

@@ -20,7 +20,7 @@
          <children>
             <ImageView fx:id="panel1" fitHeight="705.0" fitWidth="1280.0" layoutX="-1.0" layoutY="-1.0">
                <image>
-                  <Image url="file:resources/background/back1.png" />
+                  <Image url="@../../resources/background/back1.png" />
                </image>
                <effect>
                   <GaussianBlur radius="20.5" />
@@ -121,7 +121,7 @@
          <children>
             <ImageView fitHeight="705.0" fitWidth="1280.0">
                <image>
-                  <Image url="file:resources/background/back1.png" />
+                  <Image url="@../../resources/background/back1.png" />
                </image>
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" height="100.0" radius="49.5" spread="0.58" width="100.0" />
@@ -129,47 +129,47 @@
             </ImageView>
             <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="1071.0" layoutY="667.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:resources/avatares/chair.png" />
+                  <Image url="@../../resources/avatares/chair.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="1036.0" layoutY="641.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:resources/avatares/chair.png" />
+                  <Image url="@../../resources/avatares/chair.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="1005.0" layoutY="667.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:resources/avatares/chair.png" />
+                  <Image url="@../../resources/avatares/chair.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="971.0" layoutY="640.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:resources/avatares/chair.png" />
+                  <Image url="@../../resources/avatares/chair.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="940.0" layoutY="667.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:resources/avatares/chair.png" />
+                  <Image url="@../../resources/avatares/chair.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="906.0" layoutY="640.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:resources/avatares/chair.png" />
+                  <Image url="@../../resources/avatares/chair.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="873.0" layoutY="667.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:resources/avatares/chair.png" />
+                  <Image url="@../../resources/avatares/chair.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="840.0" layoutY="640.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:resources/avatares/chair.png" />
+                  <Image url="@../../resources/avatares/chair.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="806.0" layoutY="667.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:resources/avatares/chair.png" />
+                  <Image url="@../../resources/avatares/chair.png" />
                </image>
             </ImageView>
             <ImageView fx:id="I0" fitHeight="55.0" fitWidth="38.0" layoutX="1071.0" layoutY="635.0" pickOnBounds="true" preserveRatio="true" />
@@ -183,7 +183,7 @@
             <ImageView fx:id="I8" fitHeight="55.0" fitWidth="38.0" layoutX="806.0" layoutY="635.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="503.0" fitWidth="1280.0" layoutY="204.0">
                <image>
-                  <Image url="file:resources/background/back2.png" />
+                  <Image url="@../../resources/background/back2.png" />
                </image>
             </ImageView>
             <ImageView fx:id="Tela" fitHeight="81.0" fitWidth="85.0" layoutX="1170.0" layoutY="602.0" pickOnBounds="true" preserveRatio="true" rotate="18.0" />

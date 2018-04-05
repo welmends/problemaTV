@@ -23,32 +23,32 @@
       <Separator layoutX="4.0" layoutY="50.0" opacity="0.8" prefWidth="200.0" />
       <ImageView fitHeight="60.0" fitWidth="86.0" layoutX="20.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:resources/avatares/W2_0.png" />
+            <Image url="@../../resources/avatares/W2_0.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="60.0" fitWidth="86.0" layoutX="20.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:resources/avatares/W2_1.png" />
+            <Image url="@../../resources/avatares/W2_1.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="60.0" fitWidth="86.0" layoutX="20.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:resources/avatares/W2_2.png" />
+            <Image url="@../../resources/avatares/W2_2.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="60.0" fitWidth="86.0" layoutX="20.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:resources/avatares/W2_4.png" />
+            <Image url="@../../resources/avatares/W2_4.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="60.0" fitWidth="86.0" layoutX="20.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:resources/avatares/W2_5.png" />
+            <Image url="@../../resources/avatares/W2_5.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="60.0" fitWidth="86.0" layoutX="20.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:resources/avatares/W2_3.png" />
+            <Image url="@../../resources/avatares/W2_3.png" />
          </image>
       </ImageView>
       <Label alignment="CENTER" layoutX="82.0" layoutY="60.0" prefHeight="34.0" prefWidth="111.0" text="Canal 01" textFill="WHITE">
@@ -197,17 +197,17 @@
       </Label>
       <ImageView fitHeight="60.0" fitWidth="86.0" layoutX="18.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:resources/avatares/W2_6.png" />
+            <Image url="@../../resources/avatares/W2_6.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="60.0" fitWidth="86.0" layoutX="18.0" layoutY="620.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:resources/avatares/W2_8.png" />
+            <Image url="@../../resources/avatares/W2_8.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="60.0" fitWidth="86.0" layoutX="18.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:resources/avatares/W2_7.png" />
+            <Image url="@../../resources/avatares/W2_7.png" />
          </image>
       </ImageView>
    </children>
