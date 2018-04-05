@@ -1,4 +1,4 @@
-#Problema da TV
+# Problema da TV
 
 ## Condições de corrida - Semáforos
 
